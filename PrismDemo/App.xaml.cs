@@ -46,6 +46,7 @@ namespace PrismDemo
             base.ConfigureRegionAdapterMappings(regionAdapterMappings);
 
             regionAdapterMappings.RegisterMapping(typeof(TabControl), Container.Resolve<TabControlAdapter>());
+            regionAdapterMappings.RegisterMapping<StackPanel>(Container.Resolve<StackPanelRegionAdapter>());
         }
 
         protected override IModuleCatalog CreateModuleCatalog()

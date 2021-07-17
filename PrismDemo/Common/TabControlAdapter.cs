@@ -31,7 +31,7 @@ namespace PrismDemo.Common
                         var controlType = item.GetType();
                         var title = baseViewModel?.Title ?? controlType.Name; 
                         var image = baseViewModel?.Image;
-                        var header = new StackPanel { Orientation = Orientation.Horizontal}; 
+                        var header = new StackPanel { Orientation = Orientation.Horizontal }; 
                         if (image != null)
                         { 
                            header.Children.Add(new Image { Source = image, Height=24, Width=24, VerticalAlignment = VerticalAlignment.Center });
@@ -41,8 +41,8 @@ namespace PrismDemo.Common
                             TextAlignment = TextAlignment.Center, 
                             VerticalAlignment = VerticalAlignment.Center, 
                             TextWrapping = TextWrapping.Wrap,
-                            MaxWidth = 200
-                        });                        
+                            MaxWidth = 200 
+                        }); 
                         regionTarget.Items.Add(new TabItem { Header = header, Tag = controlType, Content = item });
                     }
                 }

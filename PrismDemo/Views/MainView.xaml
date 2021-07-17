@@ -12,6 +12,15 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
              >
+    <UserControl.Resources>
+        <ResourceDictionary> 
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Other MaterialDesign resource stuff -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignExtensions;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignExtensions;component/Themes/MaterialDesignLightTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -19,15 +28,16 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListView Margin="0 1 0 0" Grid.Column="0" MinWidth="200" Background="#3481B8" BorderThickness="0"
-                  prism:RegionManager.RegionName="{x:Static base:Regions.Navigate}"
+        <!--<ListView Margin="0 1 0 0" Grid.Column="0" MinWidth="200" Background="#3481B8" BorderThickness="0"
+                  prism:RegionManager.RegionContext=""
                   />
 
-        <GridSplitter Margin="0 1 0 0" Grid.Column="1" ShowsPreview="False" Width="3" Background="#3481B8" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
-        
-        <TabControl Background="AliceBlue" Grid.Column ="2"
-                    prism:RegionManager.RegionName="{x:Static base:Regions.Document}"
+        <GridSplitter Margin="0 1 0 0" Grid.Column="1" ShowsPreview="False" Width="3" Background="#3481B8" HorizontalAlignment="Center" VerticalAlignment="Stretch" />-->
+
+        <TabControl  Grid.Column ="2"
+                     prism:RegionManager.RegionName="{x:Static base:Regions.Document}"  
+                     Style="{StaticResource MaterialDesignTabControl}" 
                     />
-        
+
     </Grid>
 </UserControl>

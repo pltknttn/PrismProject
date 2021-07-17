@@ -9,8 +9,9 @@
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="450" Width="800"
-        d:DataContext="{d:DesignInstance Type=model:ShellViewModel}"        
+        Title="{Binding Title}" Height="650" Width="800"
+        d:DataContext="{d:DesignInstance Type=model:ShellViewModel}"  
+        WindowStartupLocation="CenterScreen"
         >
     <Grid>
         
