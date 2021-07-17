@@ -3,12 +3,15 @@ using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace PrismDemo.ViewModels.Base
 {
     public class BaseViewModel : BindableBase, INavigationAware, IRegionMemberLifetime
     {
         public string Title { get; set; }
+        public BitmapImage Image { get; set; }
 
         public bool KeepAlive { get; set; } = true;
 

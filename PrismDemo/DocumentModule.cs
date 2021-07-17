@@ -22,15 +22,15 @@ namespace PrismDemo
         {
             _regionManager ??= containerProvider.Resolve<IRegionManager>();
                          
-            if (!_regionManager.Regions.ContainsRegionWithName(Region.Document))
+            if (!_regionManager.Regions.ContainsRegionWithName(Regions.Document))
             {
-                var region = new Prism.Regions.Region { Name = Region.Document };
+                var region = new Prism.Regions.Region { Name = Regions.Document };
                 _regionManager.Regions.Add(region);
             }
 
-            _regionManager.RegisterViewWithRegion(Region.Document, typeof(JornalView)); 
-            _regionManager.RegisterViewWithRegion(Region.Document, typeof(SettingsView));
-            _regionManager.RegisterViewWithRegion(Region.Document, typeof(MailView));
+            _regionManager.RegisterViewWithRegion(Regions.Document, typeof(JornalView)); 
+            _regionManager.RegisterViewWithRegion(Regions.Document, typeof(SettingsView));
+            _regionManager.RegisterViewWithRegion(Regions.Document, typeof(MailView));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

@@ -20,13 +20,13 @@
         </Grid.ColumnDefinitions>
 
         <ListView Margin="0 1 0 0" Grid.Column="0" MinWidth="200" Background="#3481B8" BorderThickness="0"
-                  prism:RegionManager.RegionName="{x:Static base:Region.Navigate}"
+                  prism:RegionManager.RegionName="{x:Static base:Regions.Navigate}"
                   />
 
         <GridSplitter Margin="0 1 0 0" Grid.Column="1" ShowsPreview="False" Width="3" Background="#3481B8" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
         
         <TabControl Background="AliceBlue" Grid.Column ="2"
-                    prism:RegionManager.RegionName="{x:Static base:Region.Document}"
+                    prism:RegionManager.RegionName="{x:Static base:Regions.Document}"
                     />
         
     </Grid>

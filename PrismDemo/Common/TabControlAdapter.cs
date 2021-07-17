@@ -5,7 +5,10 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace PrismDemo.Common
 {
@@ -24,10 +27,23 @@ namespace PrismDemo.Common
                 {
                     foreach (UserControl item in e.NewItems)
                     {
+                        var baseViewModel = item.DataContext as BaseViewModel;
                         var controlType = item.GetType();
-                        var title = (item.DataContext as BaseViewModel)?.Title ?? controlType.Name;
-
-                        regionTarget.Items.Add(new TabItem { Header = title, Tag = controlType, Content = item });
+                        var title = baseViewModel?.Title ?? controlType.Name; 
+                        var image = baseViewModel?.Image;
+                        var header = new StackPanel { Orientation = Orientation.Horizontal}; 
+                        if (image != null)
+                        { 
+                           header.Children.Add(new Image { Source = image, Height=24, Width=24, VerticalAlignment = VerticalAlignment.Center });
+                        }
+                        header.Children.Add(new TextBlock { 
+                            Text = title, 
+                            TextAlignment = TextAlignment.Center, 
+                            VerticalAlignment = VerticalAlignment.Center, 
+                            TextWrapping = TextWrapping.Wrap,
+                            MaxWidth = 200
+                        });                        
+                        regionTarget.Items.Add(new TabItem { Header = header, Tag = controlType, Content = item });
                     }
                 }
                 else if (e.Action == NotifyCollectionChangedAction.Remove)

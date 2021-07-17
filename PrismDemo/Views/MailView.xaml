@@ -12,7 +12,6 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              d:DataContext="{d:DesignInstance Type=viewmodels:MailViewModel}"
              >
-    <Grid>
-            
+    <Grid> 
     </Grid>
 </UserControl>

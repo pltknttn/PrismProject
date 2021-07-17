@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PrismDemo
 {
-    public static class Region
+    public static class Regions
     {
         public static string Main = "Main";
         public static string Navigate = "Navigate";

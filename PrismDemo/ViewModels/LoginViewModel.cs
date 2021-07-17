@@ -31,7 +31,7 @@ namespace PrismDemo.ViewModels
             
         private void OnLogin()
         {
-            RegionManager.RequestNavigate(Region.Main, nameof(MainView));
+            RegionManager.RequestNavigate(Regions.Main, nameof(MainView));
         }
 
         private bool CanOnLogin()

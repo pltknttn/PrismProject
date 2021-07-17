@@ -14,7 +14,7 @@
         >
     <Grid>
         
-        <ContentControl prism:RegionManager.RegionName="{x:Static local:Region.Main}"/>
+        <ContentControl prism:RegionManager.RegionName="{x:Static local:Regions.Main}"/>
 
     </Grid>
 </Window>
