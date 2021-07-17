@@ -8,6 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800"
              xmlns:prism ="http://prismlibrary.com/" 
              xmlns:viewmodels="clr-namespace:PrismDemo.ViewModels"
+             xmlns:common="clr-namespace:PrismDemo.Common"
              prism:ViewModelLocator.AutoWireViewModel="True"
              d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
            >
@@ -29,22 +30,26 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="10"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="15"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0">
-                    <Label Content="АРМ:"/>
-                    <TextBox Text="{Binding ArmName}"/>
+                    <Label Content="Логин:"/>
+                    <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="2">
-                    <Label Content="КЛЮЧ:"/>
-                    <TextBox Text="{Binding Key}"/>
+                    <Label Content="Пароль:"/>
+                    <PasswordBox 
+                        common:PasswordBoxHelper.SecurePassword="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                        PasswordChar="*" />
                 </StackPanel>
 
                 <Button Grid.Row="4" 
-                    Content="ПОДКЛЮЧИТЬСЯ" HorizontalAlignment="Center" Padding="10"
+                    Content="Войти" MinWidth="150"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" Padding="5"
                     Command="{Binding LoginCommand}"
                     />
             </Grid>
