@@ -6,11 +6,11 @@ using System.Text;
 
 namespace PrismDemo.ViewModels
 {
-    public class MainViewModel : BaseViewModel
+    public class JornalViewModel : BaseViewModel
     {
-        public MainViewModel(IRegionManager regionManager) : base(regionManager)
+        public JornalViewModel(IRegionManager regionManager) : base(regionManager)
         {
-            Title = "Клиент";
+            Title = "Журнал";
         }
     }
 }

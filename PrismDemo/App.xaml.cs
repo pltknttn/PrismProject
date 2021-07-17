@@ -2,6 +2,7 @@
 using Prism.Modularity;
 using Prism.Regions;
 using Prism.Unity;
+using PrismDemo.Common;
 using PrismDemo.Views;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace PrismDemo
 {
@@ -31,7 +33,7 @@ namespace PrismDemo
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+             
         }
 
         protected override void ConfigureViewModelLocator()
@@ -42,6 +44,8 @@ namespace PrismDemo
         protected override void ConfigureRegionAdapterMappings(RegionAdapterMappings regionAdapterMappings)
         {
             base.ConfigureRegionAdapterMappings(regionAdapterMappings);
+
+            regionAdapterMappings.RegisterMapping(typeof(TabControl), Container.Resolve<TabControlAdapter>());
         }
 
         protected override IModuleCatalog CreateModuleCatalog()
@@ -53,8 +57,12 @@ namespace PrismDemo
         {
             base.ConfigureModuleCatalog(moduleCatalog);
 
-            Type module = typeof(PrismDemoModule);
-            moduleCatalog.AddModule(new Prism.Modularity.ModuleInfo { ModuleName = module.Name, ModuleType = module.AssemblyQualifiedName });
+            Type module = typeof(MainModule);
+            moduleCatalog.AddModule(new ModuleInfo { ModuleName = module.Name, ModuleType = module.AssemblyQualifiedName });
+
+            module = typeof(DocumentModule);
+            moduleCatalog.AddModule(new ModuleInfo { ModuleName = module.Name, ModuleType = module.AssemblyQualifiedName });
+
         }
     }
 }

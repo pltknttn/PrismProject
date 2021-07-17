@@ -6,11 +6,11 @@ using System.Text;
 
 namespace PrismDemo.ViewModels
 {
-    public class MainViewModel : BaseViewModel
+    public class MailViewModel : BaseViewModel
     {
-        public MainViewModel(IRegionManager regionManager) : base(regionManager)
+        public MailViewModel(IRegionManager regionManager) : base(regionManager)
         {
-            Title = "Клиент";
+            Title = "Почта";
         }
     }
 }

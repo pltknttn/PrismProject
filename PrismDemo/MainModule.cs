@@ -8,11 +8,11 @@ using System.Text;
 
 namespace PrismDemo
 {
-    public class PrismDemoModule : IModule
+    public class MainModule : IModule
     {
         private IRegionManager _regionManager;
 
-        public PrismDemoModule(IRegionManager regionManager)
+        public MainModule(IRegionManager regionManager)
         {
             _regionManager = regionManager;
         }

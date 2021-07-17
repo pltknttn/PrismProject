@@ -22,18 +22,16 @@ namespace PrismDemo.ViewModels
         public SecureString Password { get => _password; set { SetProperty(ref _password, value); RaisePropertyChanged(nameof(IsAllowLoging)); } }
         
         public ICommand LoginCommand { get; set; }
-
-        IRegionManager _regionManager;
-
-        public LoginViewModel(IRegionManager regionManager)
-        {
-            _regionManager = regionManager;
-            LoginCommand = new DelegateCommand( OnLogin, CanOnLogin).ObservesProperty(() => IsAllowLoging); 
+ 
+        public LoginViewModel(IRegionManager regionManager) : base(regionManager)
+        { 
+            LoginCommand = new DelegateCommand( OnLogin, CanOnLogin).ObservesProperty(() => IsAllowLoging);
+            Title = "Авторизация";
         }
             
         private void OnLogin()
         {
-            _regionManager.RequestNavigate(Region.Main, nameof(MainView));
+            RegionManager.RequestNavigate(Region.Main, nameof(MainView));
         }
 
         private bool CanOnLogin()

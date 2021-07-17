@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PrismDemo.Views"
+             xmlns:base="clr-namespace:PrismDemo"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              xmlns:prism ="http://prismlibrary.com/" 
@@ -18,11 +19,15 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListView Margin="0 1 0 0" Grid.Column="0" MinWidth="200" Background="#3481B8" BorderThickness="0"/>
+        <ListView Margin="0 1 0 0" Grid.Column="0" MinWidth="200" Background="#3481B8" BorderThickness="0"
+                  prism:RegionManager.RegionName="{x:Static base:Region.Navigate}"
+                  />
 
         <GridSplitter Margin="0 1 0 0" Grid.Column="1" ShowsPreview="False" Width="3" Background="#3481B8" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
         
-        <TabControl Background="AliceBlue" Grid.Column ="2" />
+        <TabControl Background="AliceBlue" Grid.Column ="2"
+                    prism:RegionManager.RegionName="{x:Static base:Region.Document}"
+                    />
         
     </Grid>
 </UserControl>

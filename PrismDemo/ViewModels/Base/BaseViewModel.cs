@@ -8,7 +8,17 @@ namespace PrismDemo.ViewModels.Base
 {
     public class BaseViewModel : BindableBase, INavigationAware, IRegionMemberLifetime
     {
+        public string Title { get; set; }
+
         public bool KeepAlive { get; set; } = true;
+
+        IRegionManager _regionManager;
+        public IRegionManager RegionManager => _regionManager;
+
+        public BaseViewModel(IRegionManager regionManager)
+        {
+            _regionManager = regionManager;
+        }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
         {
