@@ -3,6 +3,7 @@ using Prism.Modularity;
 using Prism.Regions;
 using PrismDemo.ViewModels;
 using PrismDemo.Views;
+using PrismDemo.Views.WaitIndicator;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -31,6 +32,11 @@ namespace PrismDemo
             _regionManager.RegisterViewWithRegion(Regions.Document, typeof(JornalView)); 
             _regionManager.RegisterViewWithRegion(Regions.Document, typeof(SettingsView));
             _regionManager.RegisterViewWithRegion(Regions.Document, typeof(MailView));
+            //_regionManager.RegisterViewWithRegion(Regions.Document, typeof(MonInterfaceWindow));
+            _regionManager.RegisterViewWithRegion(Regions.Document, typeof(WaitIndicatorView));
+            _regionManager.RegisterViewWithRegion(Regions.Document, typeof(AnimatedProgressInCardView));
+            _regionManager.RegisterViewWithRegion(Regions.Document, typeof(IndeterminateCircularProgressView));
+
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

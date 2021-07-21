@@ -25,8 +25,8 @@ namespace PrismDemo.Common
             
                 if (e.Action == NotifyCollectionChangedAction.Add)
                 {
-                    foreach (UserControl item in e.NewItems)
-                    {
+                    foreach (ContentControl item in e.NewItems)
+                    { 
                         var baseViewModel = item.DataContext as BaseViewModel;
                         var controlType = item.GetType();
                         var title = baseViewModel?.Title ?? controlType.Name; 
@@ -43,12 +43,12 @@ namespace PrismDemo.Common
                             TextWrapping = TextWrapping.Wrap,
                             MaxWidth = 200 
                         }); 
-                        regionTarget.Items.Add(new TabItem { Header = header, Tag = controlType, Content = item });
+                        regionTarget.Items.Add(new TabItem { Header = header, Tag = controlType, Content = item.Content });
                     }
                 }
                 else if (e.Action == NotifyCollectionChangedAction.Remove)
                 {
-                    foreach (UserControl item in e.OldItems)
+                    foreach (ContentControl item in e.OldItems)
                     {
                         var tabDeleted = regionTarget.Items.OfType<TabItem>().FirstOrDefault(f => f.Content == item);
                         if (tabDeleted == null) continue;

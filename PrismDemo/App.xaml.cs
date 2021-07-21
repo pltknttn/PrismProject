@@ -1,4 +1,5 @@
-﻿using Prism.Ioc;
+﻿using MaterialDesignThemes.Wpf;
+using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 using Prism.Unity;
@@ -28,7 +29,7 @@ namespace PrismDemo
         protected override void InitializeShell(Window shell)
         {
             Current.MainWindow = shell;
-            Current.MainWindow.Show();
+            Current.MainWindow.Show(); 
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -64,6 +65,11 @@ namespace PrismDemo
             module = typeof(DocumentModule);
             moduleCatalog.AddModule(new ModuleInfo { ModuleName = module.Name, ModuleType = module.AssemblyQualifiedName });
 
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        { 
+            base.OnExit(e);
         }
     }
 }
